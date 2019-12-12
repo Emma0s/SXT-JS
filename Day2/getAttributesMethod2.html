@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #div1 {height: 100px;width: 100px;border: 1px solid black;}
+    </style>
+    <script>
+        function setStyle(name, value) {
+            var oDiv = document.getElementById('div1');
+            oDiv.style[name] = value;
+        }
+    </script>
+</head>
+<body>
+<input type="button" value="变宽" onclick="setStyle('width','150px')">
+<input type="button" value="变高" onclick="setStyle('height','150px')">
+<input type="button" value="变绿" onclick="setStyle('background','green')">
+<div id="div1"/>
+</body>
+</html>

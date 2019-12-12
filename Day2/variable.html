@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #div1 {height: 100px;width: 100px;border: 1px solid black;}
+    </style>
+    <script>
+        function toColor(color) {
+            var oDiv = document.getElementById('div1');
+            oDiv.style.background = color;
+        }
+    </script>
+</head>
+<body>
+<input type="button" value="变绿" onclick="toColor('green')"/>
+<input type="button" value="变黄" onclick="toColor('yellow')"/>
+<input type="button" value="变黑" onclick="toColor('black')"/>
+<div id="div1"></div>
+</body>
+</html>
