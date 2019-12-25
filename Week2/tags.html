@@ -1,0 +1,47 @@
+<!--选项卡
+1.将用到的组件一一摆出,高亮显示当前选中的Button
+2.div只显示一个，将其他的div隐藏
+3.添加点击事件，当button选中时该button高亮,其余button不亮
+4.当button选中时显示其下的div
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #div1 .active {background: yellow}
+        #div1 div {width: 200px;height: 200px;background: #CCC;border: 1px solid #999;display: none;}
+    </style>
+    <script>
+        window.onload = function () {
+                var oDiv = document.getElementById("div1");
+                var oBtn = document.getElementsByTagName("input");
+                var aDiv = oDiv.getElementsByTagName("div");
+                for (var i=0;i<oBtn.length;i++){
+                    oBtn[i].index = i;
+                    oBtn[i].onclick = function () {
+                        for (var i=0;i<oBtn.length;i++){
+                            oBtn[i].className = "none";
+                            aDiv[i].style.display = "none";
+                        }
+                        this.className = 'active';
+                        aDiv[this.index].style.display = 'block';
+                    }
+                }
+        };
+    </script>
+</head>
+<body>
+<div id="div1">
+    <input class="active" type="button" value="教育"/>
+    <input type="button" value="培训"/>
+    <input type="button" value="招生"/>
+    <input type="button" value="出国"/>
+    <div style="display: block">1111</div>
+    <div>2222</div>
+    <div>3333</div>
+    <div>4444</div>
+</div>
+</body>
+</html>

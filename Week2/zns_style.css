@@ -1,0 +1,7 @@
+body{background:skyblue;}
+#tab {height:700px;width:440px;background:gray;margin-left:500px;margin-top:10px;position:absolute;}
+#tab ul{margin-top:20px;}
+#tab ul li{list-style:none;height:100px;width:100px;background:black;float:left;margin:10px;text-align:center;border:1px solid #000;color:white;}
+#tab .active{background:white;color:red;}
+
+.text{background:white;height:150px;width:335px;font-size:15px;margin-top:520px;margin-left:50px;position:relative;border:2px solid blue;padding-left:10px;}
