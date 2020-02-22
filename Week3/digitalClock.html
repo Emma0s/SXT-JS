@@ -1,0 +1,42 @@
+<!--数字时钟
+1.先将数字图片显示出来
+2.能通过固定字符串数字显示时间
+3.利用Date获取实时时间，并将获取的时间固定为6位长度
+4.利用getInterVal实现实时刷新效果
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function toDouble(a){
+            if (a<10){
+                return '0'+a;
+            }else {
+                return ''+a;
+            }
+        }
+        window.onload = function () {
+            var aImg = document.getElementsByTagName('img');
+            setInterval(function () {
+                var oDate = new Date();
+                var str = toDouble(oDate.getHours())+toDouble(oDate.getMinutes())+toDouble(oDate.getSeconds());
+                for (var i=0;i<aImg.length;i++){
+                    aImg[i].src = 'images/'+str[i]+'.png';
+                }
+            },1000);
+        }
+    </script>
+</head>
+<body style="background: black;color: white;font-size: 50px">
+<img src="images/0.png">
+<img src="images/0.png">
+:
+<img src="images/0.png">
+<img src="images/0.png">
+:
+<img src="images/0.png">
+<img src="images/0.png">
+</body>
+</html>
