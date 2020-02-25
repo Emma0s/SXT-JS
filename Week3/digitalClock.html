@@ -3,6 +3,7 @@
 2.能通过固定字符串数字显示时间
 3.利用Date获取实时时间，并将获取的时间固定为6位长度
 4.利用getInterVal实现实时刷新效果
+5.onload里先调用一次函数实现页面无痕初始化
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -10,22 +11,24 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <script>
-        function toDouble(a){
-            if (a<10){
-                return '0'+a;
+        function toDou(int){
+            if (int<10){
+                return '0'+int;
             }else {
-                return ''+a;
+                return '' + int;
             }
         }
         window.onload = function () {
-            var aImg = document.getElementsByTagName('img');
-            setInterval(function () {
+            function tick() {
                 var oDate = new Date();
-                var str = toDouble(oDate.getHours())+toDouble(oDate.getMinutes())+toDouble(oDate.getSeconds());
+                var str = toDou(oDate.getHours())+toDou(oDate.getMinutes())+toDou(oDate.getSeconds());
+                var aImg = document.getElementsByTagName('img');
                 for (var i=0;i<aImg.length;i++){
                     aImg[i].src = 'images/'+str[i]+'.png';
                 }
-            },1000);
+            }
+            tick();
+            setInterval(tick,1000);
         }
     </script>
 </head>
