@@ -1,5 +1,10 @@
 <!--无缝滚动
-1.让div向固定方向移动
+1.布局
+2.让div向固定方向移动
+3.固定显示框大小，实现移动消失和显现的效果
+4.无缝连接
+5.换个方向
+6.添加控制方向的按钮
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -7,16 +12,58 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <style>
-        #div1 {width: 200px;height: 200px;background: red;position: absolute;left: 0;top: 50px;}
+        * {margin: 0;padding: 0;}
+        #div1 {width: 712px;height: 108px;margin: 100px auto;position: relative;overflow: hidden;}
+        #div1 ul {position: absolute;left: 0;top: 0;}
+        #div1 ul li {float: left;width: 178px;height: 108px;list-style: none;}
     </style>
     <script>
-        setInterval(function () {
-            var oDiv = document.getElementById('div1');
-            oDiv.style.left = oDiv.offsetLeft+10+'px';
-        },30);
+        window.onload = function () {
+            var oDiv1 = document.getElementById('div1');
+            var oUl = oDiv1.getElementsByTagName('ul')[0];
+            var aLi = oUl.getElementsByTagName('li');
+            var speed = 2;
+
+            oUl.innerHTML = oUl.innerHTML+oUl.innerHTML;
+            oUl.style.width = aLi[0].offsetWidth*aLi.length+'px';
+
+            function move() {
+                if (oUl.offsetLeft < -oUl.offsetWidth/2){
+                    oUl.style.left = '0';
+                }
+                if (oUl.offsetLeft > 0){
+                    oUl.style.left = -oUl.offsetWidth/2+'px';
+                }
+                oUl.style.left = oUl.offsetLeft+speed+'px';
+            }
+
+            var timer = setInterval(move,30);
+
+            oDiv1.onmouseover = function () {
+                clearInterval(timer);
+            };
+            oDiv1.onmouseout = function () {
+                timer = setInterval(move,30);
+            };
+            document.getElementsByTagName('a')[0].onclick = function () {
+                speed = -2;
+            };
+            document.getElementsByTagName('a')[1].onclick = function () {
+                speed = 2;
+            }
+        }
     </script>
 </head>
 <body>
-<div id="div1"></div>
+<a href="javascript:">向左走</a>
+<a href="javascript:">向右走</a>
+<div id="div1">
+    <ul>
+        <li><img src="img2/1.jpg"></li>
+        <li><img src="img2/2.jpg"></li>
+        <li><img src="img2/3.jpg"></li>
+        <li><img src="img2/4.jpg"></li>
+    </ul>
+</div>
 </body>
 </html>
