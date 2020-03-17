@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #ul1 {background: green;}
+        #ul2 {background: yellow;}
+    </style>
+    <script>
+        window.onload = function () {
+            var oUl1 = document.getElementById('ul1');
+            var oBtn = document.getElementById('btn1');
+            oBtn.onclick = function () {
+                var aLi = document.getElementsByTagName('li');
+                var arr = [];
+                for (var i=0;i<aLi.length;i++){
+                    arr[i] = aLi[i];
+                }
+                arr.sort(function (li1, li2) {
+                    var a = parseInt(li1.innerHTML);
+                    var b = parseInt(li2.innerHTML);
+                    return a-b;
+                });
+                for (var j=0;j<arr.length;j++){
+                    alert('该把'+arr[j].innerHTML+'插入至队尾');
+                    oUl1.appendChild(arr[j]);//注意appendChild方法是先从旧队列中将元素删除然后插入新队列
+                }
+            }
+        };
+    </script>
+</head>
+<body>
+<ul id="ul1">
+    <li>34</li>
+    <li>25</li>
+    <li>9</li>
+    <li>88</li>
+    <li>54</li>
+</ul>
+<input id="btn1" type="button" value="排序">
+</body>
+</html>

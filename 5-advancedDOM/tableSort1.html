@@ -5,29 +5,27 @@
     <title>Title</title>
     <script>
         window.onload = function () {
-            var oBtn = document.getElementById('btn1');
-            var oTxt = document.getElementById('name');
             var oTab = document.getElementById('tab1');
+            var oBtn = document.getElementById('btn1');
             oBtn.onclick = function () {
-                for (var i = 0; i < oTab.tBodies[0].rows.length; i++) {
-                    var sTab = oTab.tBodies[0].rows[i].cells[1].innerHTML;
-                    var sTxt = oTxt.value;
-                    var arr = sTxt.split(' ');
-                    oTab.tBodies[0].rows[i].style.display = 'none';
-                    for (var j=0;j<arr.length;j++){
-                        if (sTab.search(arr[j])!= -1){
-                            oTab.tBodies[0].rows[i].style.display = 'block';
-                        }
-                    }
-
+                var arr = [];
+                for(var i=0;i<oTab.tBodies[0].rows.length;i++){
+                    arr[i] = oTab.tBodies[0].rows[i];
+                }
+                arr.sort(function (tr1, tr2) {
+                    var a = parseInt(tr1.cells[0].innerHTML);
+                    var b = parseInt(tr2.cells[0].innerHTML);
+                    return a-b;
+                });
+                for (var j=0;j<arr.length;j++){
+                   oTab.tBodies[0].appendChild(arr[j]);
                 }
             }
         }
     </script>
 </head>
 <body>
-姓名：<input id="name" type="text">
-<input id="btn1" value="搜索" type="button">
+<input id="btn1" value="排序" type="button">
 <table id="tab1" border="1" width="500px">
     <thead>
     <td>ID</td>
@@ -37,19 +35,19 @@
     </thead>
     <tbody>
     <tr>
-        <td>1</td>
+        <td>2</td>
         <td>Blue</td>
         <td>27</td>
         <td></td>
     </tr>
     <tr>
-        <td>2</td>
+        <td>4</td>
         <td>季孙</td>
         <td>12</td>
         <td></td>
     </tr>
     <tr>
-        <td>3</td>
+        <td>6</td>
         <td>孙fh</td>
         <td>45</td>
         <td></td>
@@ -61,7 +59,7 @@
         <td></td>
     </tr>
     <tr>
-        <td>5</td>
+        <td>3</td>
         <td>apple</td>
         <td>36</td>
         <td></td>
