@@ -1,10 +1,30 @@
+<!--
+offset属性的Bug
+有边框的Div变宽：用currentStyle代替offset
+-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style>
+        #div1 {width: 200px;height: 200px;background: red;border: 1px solid black;}
+    </style>
+    <script>
+        function getStyle(obj, name) {
+            if (obj.currentStyle){
+                return obj.currentStyle[name];
+            }else {
+                return getComputedStyle(obj,false)[name];
+            }
+        }
+        setInterval(function () {
+            var oDiv = document.getElementById('div1');
+            oDiv.style.width = parseInt(getStyle(oDiv,'width'))-1+'px';
+        },30);
+    </script>
 </head>
 <body>
-
+<div id="div1"></div>
 </body>
 </html>
