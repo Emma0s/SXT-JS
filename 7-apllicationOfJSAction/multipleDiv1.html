@@ -1,0 +1,50 @@
+<!--多物体运动框架
+将定时器作为物体的属性，参数传递物体和目标值
+例：多个Div的淡入淡出
+所有东西都不能公用，属性与运动对象绑定（速度等其他属性值）
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div {width: 200px;height: 200px;margin: 20px;float: left;background: red;filter: alpha(opacity:30);opacity: 0.3;}
+    </style>
+    <script>
+        window.onload = function () {
+            var aDiv = document.getElementsByTagName('div');
+            for (var i=0;i<aDiv.length;i++){
+                aDiv[i].alpha = 30;
+                aDiv[i].timer = null;
+                aDiv[i].onmouseover = function () {
+                    startMove(this,100);
+                };
+                aDiv[i].onmouseout = function () {
+                    startMove(this,30);
+                };
+            }
+        };
+        function startMove(obj, iTarget) {
+            clearInterval(obj.timer);
+            obj.timer = setInterval(function () {
+                var speed = (iTarget-obj.alpha)/6;
+                speed = speed>0?Math.ceil(speed):Math.floor(speed);
+                if (obj.alpha == iTarget){
+                    clearInterval(obj.timer);
+                }else {
+                    obj.alpha += speed;
+                    obj.style.filter = 'alpha(opacity:'+obj.alpha+')';
+                    obj.style.opacity = obj.alpha/100;
+                }
+
+            },30)
+        }
+    </script>
+</head>
+<body>
+<div></div>
+<div></div>
+<div></div>
+</body>
+</html>
