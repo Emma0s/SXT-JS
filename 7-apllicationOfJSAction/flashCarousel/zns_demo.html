@@ -49,43 +49,6 @@
             startMove(oBtnNext,'opacity',0);
         };
 
-        //大图切换
-        for (var i=0;i<aLiSmall.length;i++){
-            aLiSmall[i].index = i;
-            aLiSmall[i].onclick = function () {
-                if (this.index == now) return;
-                now = this.index;
-                tab();
-            };
-            aLiSmall[i].onmouseover = function () {
-                startMove(this,'opacity',100);
-            };
-            aLiSmall[i].onmouseout = function () {
-                if (this.index != now){
-                    startMove(this,'opacity',60);
-                }
-            };
-        }
-
-        function tab(){
-            aLiBig[now].style.zIndex = nowZIndex++;
-
-            for (var i=0;i<aLiSmall.length;i++){
-                startMove(aLiSmall[i],'opacity',60);
-            }
-            startMove(aLiSmall[now],'opacity',100);
-
-            aLiBig[now].style.height=0;
-            startMove(aLiBig[now], 'height', 320);
-            if (now == 0){
-                startMove(oUlSmall,'left',0);
-            }else if (now == aLiSmall.length-1) {
-                startMove(oUlSmall,'left',-(now-2)*aLiSmall[0].offsetWidth);
-            }else {
-                startMove(oUlSmall,'left',-(now-1)*aLiSmall[0].offsetWidth);
-            }
-        }
-
         oBtnPrev.onclick = function () {
             now--;
             if (now == -1){
@@ -93,13 +56,49 @@
             }
             tab();
         };
-        oBtnNext.onclick = function(){
+        oBtnNext.onclick = function () {
             now++;
             if (now == aLiSmall.length){
                 now = 0;
             }
             tab();
         };
+
+        //大图切换
+        for(var i=0;i<aLiSmall.length;i++){
+            aLiSmall[i].index = i;
+            aLiSmall[i].onclick = function () {
+                if (this.index == now) return;
+                now = this.index;
+                tab();
+            };
+            aLiSmall[i].onmouseover = function () {
+                startMove(aLiSmall[this.index],'opacity',100);
+            };
+            aLiSmall[i].onmouseout = function () {
+                if (this.index == now){
+                    return;
+                }
+                startMove(aLiSmall[this.index],'opacity',60);
+            };
+        }
+        function tab() {
+            aLiBig[now].style.zIndex = nowZIndex++;
+            aLiBig[now].style.height = 0;
+            startMove(aLiBig[now],'height',320);
+            for (var i=0;i<aLiSmall.length;i++){
+                startMove(aLiSmall[i],'opacity',60);
+            }
+            startMove(aLiSmall[now],'opacity',100);
+
+            if (now == 0){
+                startMove(oUlSmall,'left',0);
+            }else if (now == aLiSmall.length-1){
+                startMove(oUlSmall,'left',-(now-2)*aLiSmall[0].offsetWidth);
+            }else {
+                startMove(oUlSmall,'left',-(now-1)*aLiSmall[0].offsetWidth);
+            }
+        }
 
         var timer = setInterval(oBtnNext.onclick,2000);
         oDiv.onmouseover = function () {
