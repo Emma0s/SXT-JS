@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div {background: #666666;height: 200px;width: 200px;display: none; }
+    </style>
+    <script>
+        window.onload = function () {
+            var oBtn = document.getElementById('btn1');
+            var oDiv = document.getElementById('div1');
+            oBtn.onclick = function (ev) {
+                var oEvent = ev||event;
+                oDiv.style.display = 'block';
+                oEvent.cancelBubble = true;
+            };
+            document.onclick = function () {
+                oDiv.style.display = 'none';
+            };
+        }
+    </script>
+</head>
+<body>
+<input type="button" id="btn1" value="显示">
+<div id="div1"></div>
+</body>
+</html>
