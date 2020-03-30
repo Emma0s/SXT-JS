@@ -12,3 +12,8 @@
 ## 7-applicationOfJSAction:
 - 图片轮换：flashCarousel
 - 多物体运动框架
+## 8-middleLevelJSAction:
+- 链式运动框架：右下角悬浮菜单floatMenu
+- 完美运动框架：move2.js
+- ppt广告选项卡
+- 发布weibo小例子
