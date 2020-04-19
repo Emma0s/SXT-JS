@@ -13,7 +13,7 @@
             oBtn.onclick = function (ev) {
                 var oEvent = ev||event;
                 oDiv.style.display = 'block';
-                oEvent.cancelBubble = true;
+                oEvent.cancelBubble = true; //取消事件冒泡
             };
             document.onclick = function () {
                 oDiv.style.display = 'none';
