@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        window.onload = function () {
+            var oBtn = document.getElementById('oBtn');
+            oBtn.addEventListener("click", function () {
+                alert('a');
+            },false);
+            oBtn.addEventListener("click", function () {
+                alert('b');
+            },false);
+        }
+    </script>
+</head>
+<body>
+<input type="button" id="oBtn" value="发布">
+</body>
+</html>
