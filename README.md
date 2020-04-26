@@ -26,3 +26,5 @@
 - 拖拽：drag.html
 ## 11-seniorJSEvent:
 - 事件绑定：bind.html
+- 带框的拖拽：dragWithBox.html
+- 自定义滚动条：控制物体透明度-scrollBar.html、控制文字滚动-scrollBarWithText.html
