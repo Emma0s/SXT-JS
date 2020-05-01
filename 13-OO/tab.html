@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #div1 input {background: white;}
+        #div1 input.active {background: yellow;}
+        #div1 div {width: 200px;height: 200px;background: #CCC;display: none;}
+    </style>
+    <script>
+        window.onload = function () {
+            var oDiv1 = document.getElementById('div1');
+            var oBtns = oDiv1.getElementsByTagName('input');
+            var oDivs = oDiv1.getElementsByTagName('div');
+            for (var i=0;i<oBtns.length;i++){
+                oBtns[i].index= i;
+                oBtns[i].onclick = function () {
+                    for (var j=0;j<oBtns.length;j++){
+                        oBtns[j].className = '';
+                        oDivs[j].style.display = 'none';
+                    }
+                    this.className = 'active';
+                    oDivs[this.index].style.display = 'block';
+                };
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="div1">
+        <input class="active" type="button" value="aaa">
+        <input type="button" value="bbb">
+        <input type="button" value="ccc">
+
+        <div style="display: block;">aaa</div>
+        <div>bafad</div>
+        <div>ccdgfggf</div>
+    </div>
+</body>
+</html>

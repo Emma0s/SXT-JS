@@ -30,4 +30,6 @@
 - 自定义滚动条：控制物体透明度-scrollBar.html、控制文字滚动-scrollBarWithText.html
 ## 12-Ajax:
 - 请求并显示文件：read_txt.html;read_txt2.html;read_and_create.html
-- 
+- 编写ajax：my_ajax.html;new_ajax.js
+## 13-OO:
+

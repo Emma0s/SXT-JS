@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        window.onload = function () {
+            var oBtn = document.getElementById('btn1');
+            oBtn.onclick = function () {
+                //1.创建Ajax对象
+                var oAjax = new XMLHttpRequest();
+                //2.连接服务器
+                oAjax.open('GET','aaa.txt?t='+new Date().getTime(),true);
+                //3.发送请求
+                oAjax.send();
+                //4.接收返回值
+                oAjax.onreadystatechange = function () {
+                    if (oAjax.readyState == 4){ //浏览器和服务器进行到哪一步？  读取完成
+                        if (oAjax.status == 200){ //成功
+                            alert('成功：'+oAjax.responseText);
+                        }else {
+                            alert('失败：'+oAjax.status);
+                        }
+                    }
+                }
+            };
+        }
+    </script>
+</head>
+<body>
+    <input type="button" id="btn1" value="读取">
+</body>
+</html>
