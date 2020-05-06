@@ -31,5 +31,10 @@
 ## 12-Ajax:
 - 请求并显示文件：read_txt.html;read_txt2.html;read_and_create.html
 - 编写ajax：my_ajax.html;new_ajax.js
-## 13-OO:
+## 13-BOM:
+- 打开关闭窗口：open_close.html
+- 可视区尺寸及滚动距离：scrollTop.html
+- cookie之记录上次登录的用户名：setCookies.html
+## 14-regExp:
+- 敏感词过滤：regExp.html
 

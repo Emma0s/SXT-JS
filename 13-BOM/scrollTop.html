@@ -1,0 +1,24 @@
+<!--组件固定位置，不随页面滚动条移动
+1.position:fixed
+2.position:absolute
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #div1 {width: 200px;height: 150px;background: red;position: fixed;right: 0;bottom: 0;}
+        body {height: 2000px}
+    </style>
+    <script>
+        // window.onscroll = function () {   //position: absolute
+        //     var oDiv = document.getElementById('div1');
+        //     var scrollTop = document.documentElement.scrollTop;
+        //     oDiv.style.top = document.documentElement.clientHeight-oDiv.offsetHeight+scrollTop+'px';
+        // }
+    </script>
+</head>
+<div id="div1"></div>
+</body>
+</html>
