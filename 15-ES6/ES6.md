@@ -35,7 +35,8 @@ let {a,b}={a:1,b:2}  正确
    
    2、如果有且仅有一个语句并且语句是return，{}也可以不写
 
-修正this：this对象的指向时可变的，但在箭头函数中，是固定的。即：普通function，谁调用this就指谁，可变；用了箭头函数，谁声明this就指谁，不可变。
+#### 修正this
+this对象的指向时可变的，但在箭头函数中，是固定的。即：普通function，谁调用this就指谁，可变；用了箭头函数，谁声明this就指谁，不可变。
 
 #### 参数展开
 ...：收集、展开
@@ -43,10 +44,10 @@ let {a,b}={a:1,b:2}  正确
 function show(a,b,...c){
     console.log(a,b,c);
 }
-function show(a,b,...c,d){}   //报错
 show(12,5,4,8,16)   //a=12,b=5,c=[4,8,16]
 show(12,5)          //a=12,b=5,c=[]
 show(12)            //a=12,b=undefined,c=[]
+function show(a,b,...c,d){}   //报错
 
 let arr1 = [21,5,8];
 let arr2 = [4,5,6];
@@ -57,6 +58,39 @@ let json2 = {    //a:12,b:5,c:99,d:999
     ...json,
     d: 999
 };
+
+```
+#### Array扩展：
+map         映射，一一对应（n=>n）
+
+reduce      n=>1
+
+filter      过滤（n=>?）
+
+forEach     遍历
+```
+let arr = [68,53,12,98,65];
+let arr1 = arr.map(item=>item>=60?'及格':'不及格');
+let result = arr.reduce(function(tmp,item,index){
+    if(index==arr.length-1){
+        return (tmp+item)/arr.length;
+    }else{
+        return tmp+item;
+    }
+});
+let arr2 = arr.filter(item=>item%2==0);
+arr.forEach((item,index)=>{
+    alert('第'+index+'个:'+item);   //字符串连接
+    alert(`第${index}个：${item}`); //模板字符串
+});
+```
+#### JSON：
+stringify：序列化，JSON->字符串
+
+parse：反序列化，字符串->JSON
+```
+var obj = { name: "Bill", age: 62, city: "Seatle" };     //等于JSON.parse(myJSON)
+var myJSON = JSON.stringify(obj);      //{"name":"Bill","age":62,"city":"Seatle"}
 
 ```
 
