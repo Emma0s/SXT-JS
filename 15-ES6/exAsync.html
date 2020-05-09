@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jquery.js"></script>
+</head>
+<body>
+    <script>
+        async function show() {    //告诉编译器这是个特殊函数
+            let a = 1;
+            let b = 23;
+            let c = await $.ajax({url:'1.txt',dataType:'json',});    //告诉编译器此处为异步操作
+            alert(a+b+c[1]);
+        }
+        show();
+    </script>
+</body>
+</html>

@@ -5,6 +5,7 @@
 - 语言在更新换代：JDK8，PHP7，Pyth3.7
 - 支持更多语法，使用更方便
 - 增强工程性
+---------------------------------------------------
 ## ES6语法特性
 ### 变量
     var:重复声明，不能限制修改，函数级作用域
@@ -89,6 +90,55 @@ var obj = { name: "Bill", age: 62, city: "Seatle" };     //等于JSON.parse(myJS
 var myJSON = JSON.stringify(obj);      //{"name":"Bill","age":62,"city":"Seatle"}
 
 ```
+------------------------------------
+### babel编译
+在线：
+- 步骤：
+    1. 引入browser
+    2. type="text/babel"
+- 缺点：在客户端运行，有延迟
+
+本地：
+1. 安装node
+2. 安装babel
+   ```
+   npm i @babel/core @babel/cli @babel/preset-env
+   npm i @babel/polyfill
+   ```
+3. 添加脚本
+    ```
+    "build"："babel src -d dest"
+    ```
+4. 添加配置
+    ```
+    {
+        "presets":{
+            "@babel/preset-env"
+        }
+    }
+    ```
+5. 执行
+    ```
+    npm run build
+    ```
+------------------
+### 异步操作
+- 异步操作：同时进行多个操作，用户体验，代码混乱
+- 同步操作：一次只能进行一个操作，用户体验不好，代码清晰
+- 异步的操作，同步的写法：
+    #### Promise
+        1、封装
+        2、promise.all{[   //所有的promise都执行成功则成功，且返回一个promise数组
+                p1,
+                p2,
+                ...
+            ]}.then
+        3、promise.race    //返回最先成功的promise
+
+    async/await
+        普通函数——一直执行，直到结束
+        async函数——能够"暂停"
+---------------
 
 
 
