@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        class Person {
+            constructor(name,age){
+                this.name = name;
+                this.age = age;
+            }
+            showName(){
+                alert(this.name);
+            }
+            showAge(){
+                alert(this.age);
+            }
+        }
+        class Worker extends Person{
+            constructor(name,age,job){
+                super(name,age);
+                this.job = job;
+            }
+            showJob(){
+                alert(this.job);
+            }
+        }
+        let w = new Worker('Tom',20,'程序员');
+        w.showName();
+        w.showAge();
+        w.showJob();
+    </script>
+</body>
+</html>

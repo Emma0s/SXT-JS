@@ -37,4 +37,8 @@
 - cookie之记录上次登录的用户名：setCookies.html
 ## 14-regExp:
 - 敏感词过滤：regExp.html
+## 15-ES6:
+- async/await：exAsync.html
+- promise：exPromise.html
+- 模块系统：module
 
